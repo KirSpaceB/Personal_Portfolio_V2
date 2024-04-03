@@ -1,10 +1,14 @@
+import LandingPage from './components/LandingPage'
 import Nav from './components/Nav'
 
 function App() {
 
   return (
     <>
-      <Nav/>
+      <div className='flex h-screen w-screen'>
+        <Nav/>
+        <LandingPage/>
+      </div>
     </>
   )
 }

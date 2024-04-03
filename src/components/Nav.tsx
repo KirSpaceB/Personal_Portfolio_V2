@@ -10,7 +10,8 @@ export default function Nav() {
 
   const sidebarVariants = {
     open: {
-      width:"244px",
+      width: window.innerWidth > 768 ? '244px' : '144px', // Adjust as per your breakpoints
+
       transition: {
         type:"tween",
         stiffness:100,
@@ -31,7 +32,7 @@ export default function Nav() {
           <motion.nav
               animate={isOpen ? "open" : "closed"}
               variants={sidebarVariants}
-              className="bg-red-500 h-screen overflow-hidden"
+              className="bg-red-500 h-screen overflow-hidden "
           >
               <div>Projects</div>
           </motion.nav>
