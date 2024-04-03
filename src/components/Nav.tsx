@@ -1,30 +1,48 @@
 import { useState } from "react";
+import {motion} from "framer-motion"
+
 export default function Nav() {
-    //This might be a global state?
-    const [isOpen, setIsOpen] = useState(true);
-    const CloseNavHandler = () => {
-      if(isOpen) {
-        setIsOpen(false);
-      } else {
-        setIsOpen(true)
+  //This might be a global state?
+  const [isOpen, setIsOpen] = useState(true);
+  const toggleNav = () => {
+    setIsOpen(!isOpen);
+};
+
+  const sidebarVariants = {
+    open: {
+      width:"244px",
+      transition: {
+        type:"tween",
+        stiffness:100,
+      },
+    },
+    closed: {
+      width:"0px",
+      transition: {
+        type:"tween",
+        stiffness:100,
       }
     }
+  }
+
   return (
     <>
-      <div className="h-screen w-fit flex flex-row ">
+      <div className="h-screen flex flex-row">
+          <motion.nav
+              animate={isOpen ? "open" : "closed"}
+              variants={sidebarVariants}
+              className="bg-red-500 h-screen overflow-hidden"
+          >
+              <div>Projects</div>
+          </motion.nav>
 
-        {isOpen &&
-          <nav className="bg-red-500 h-screen w-[244px]">
-            <div>Projects</div>
-          </nav>
-        }
-
-        <button className="justify-center items-center w-12 h-12 bg-black" onClick={CloseNavHandler}>
-
-        </button>
-
+          <button
+              className="justify-center items-center w-12 h-12 bg-black"
+              onClick={toggleNav}
+          >
+              {/* You can add an icon or text inside the button for better UX */}
+          </button>
       </div>
     </>
-
   )
 }
