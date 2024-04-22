@@ -10,7 +10,7 @@ export default function Nav() {
 
   const sidebarVariants = {
     open: {
-      width: window.innerWidth > 768 ? '244px' : '144px', // Adjust as per your breakpoints
+      width: window.innerWidth > 768 ? '180px' : '144px', // Adjust as per your breakpoints
 
       transition: {
         type:"tween",
@@ -32,9 +32,13 @@ export default function Nav() {
           <motion.nav
               animate={isOpen ? "open" : "closed"}
               variants={sidebarVariants}
-              className="bg-red-500 h-screen overflow-hidden "
+              className="bg-red-500 h-screen overflow-hidden"
           >
+            <div className="flex flex-col justify-start m-4 space-y-4">
               <div>Projects</div>
+              <div>Resume</div>
+              <div>Projects</div>
+            </div>
           </motion.nav>
 
           <button
