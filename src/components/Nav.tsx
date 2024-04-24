@@ -43,7 +43,7 @@ export default function Nav() {
           <motion.nav
               animate={isOpen ? "open" : "closed"}
               variants={sidebarVariants}
-              className="bg-blue-500 h-screen overflow-hidden"
+              className="bg-purple-500 h-screen overflow-hidden"
           >
             <div className="flex flex-col justify-start m-4 space-y-4">
               <div>Projects</div>
