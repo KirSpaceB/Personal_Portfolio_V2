@@ -26,13 +26,24 @@ export default function Nav() {
     }
   }
 
+  const buttonVariants = {
+    open: {
+      x: 0, // Adjust x position to match the nav's movement
+      transition: { duration: 0.3 },
+    },
+    closed: {
+      x: -180, // Button is in its default position
+      transition: { duration: 0.4 },
+    },
+  };
+
   return (
     <>
       <div className="h-screen flex flex-row">
           <motion.nav
               animate={isOpen ? "open" : "closed"}
               variants={sidebarVariants}
-              className="bg-red-500 h-screen overflow-hidden"
+              className="bg-blue-500 h-screen overflow-hidden"
           >
             <div className="flex flex-col justify-start m-4 space-y-4">
               <div>Projects</div>
@@ -41,12 +52,14 @@ export default function Nav() {
             </div>
           </motion.nav>
 
-          <button
-              className="justify-center items-center w-12 h-12 bg-black"
+          <motion.button
+              className="justify-center lg:absolute lg:top-[50vh] lg:left-[9.5vw] items-center w-1 h-12 bg-black"
               onClick={toggleNav}
+              animate={isOpen ? "open" : "closed"}
+              variants={buttonVariants}
           >
               {/* You can add an icon or text inside the button for better UX */}
-          </button>
+          </motion.button>
       </div>
     </>
   )
