@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {motion} from "framer-motion"
 
-export default function Nav() {
+export default function Sidebar() {
   //This might be a global state?
   const [isOpen, setIsOpen] = useState(true);
   const toggleNav = () => {
     setIsOpen(!isOpen);
-};
+  };
 
   const sidebarVariants = {
     open: {
-      width: window.innerWidth > 768 ? '180px' : '144px', // Adjust as per your breakpoints
-
+      width:"180px",
       transition: {
         type:"tween",
         stiffness:100,
@@ -28,12 +27,12 @@ export default function Nav() {
 
   const buttonVariants = {
     open: {
-      x: 0, // Adjust x position to match the nav's movement
+      x:"180px",
       transition: { duration: 0.3 },
     },
     closed: {
-      x: -180, // Button is in its default position
-      transition: { duration: 0.4 },
+      x:"0px",
+      transition: { duration: 0.3 },
     },
   };
 
@@ -43,23 +42,21 @@ export default function Nav() {
           <motion.nav
               animate={isOpen ? "open" : "closed"}
               variants={sidebarVariants}
-              className="bg-purple-500 h-screen overflow-hidden"
+              className="bg-purple-500 h-screen overflow-hidden relative z-10"
           >
             <div className="flex flex-col justify-start m-4 space-y-4">
               <div>Projects</div>
               <div>Resume</div>
               <div>Projects</div>
             </div>
-          </motion.nav>
-
-          <motion.button
-              className="justify-center lg:absolute lg:top-[50vh] lg:left-[9.5vw] items-center w-1 h-12 bg-black"
-              onClick={toggleNav}
-              animate={isOpen ? "open" : "closed"}
-              variants={buttonVariants}
-          >
-              {/* You can add an icon or text inside the button for better UX */}
-          </motion.button>
+        </motion.nav>
+        <motion.button
+            className="absolute top-[50vh] left-[1vw] w-[12px] h-[50px] bg-black lg:!left-[1vw]"
+            onClick={toggleNav}
+            animate={isOpen ? "open" : "closed"}
+            variants={buttonVariants}
+        >
+        </motion.button>
       </div>
     </>
   )
