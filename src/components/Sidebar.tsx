@@ -15,6 +15,7 @@ export default function Sidebar() {
         type:"tween",
         stiffness:100,
       },
+      
     },
     closed: {
       width:"0px",
@@ -38,11 +39,17 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="h-screen flex flex-row">
+      <div className="relative h-screen flex flex-row z-50">
+        {isOpen && (
+          <div
+            className="absolute inset-0 bg-black opacity-50 z-20 h-screen w-screen lg:opacity-0"
+            onClick={toggleNav}
+          ></div>
+        )}
           <motion.nav
-              animate={isOpen ? "open" : "closed"}
-              variants={sidebarVariants}
-              className="bg-purple-500 h-screen overflow-hidden relative z-10"
+            animate={isOpen ? "open" : "closed"}
+            variants={sidebarVariants}
+            className="absolute left-0 top-0 bg-purple-500 h-screen overflow-hidden z-30 lg:relative lg:z-0"
           >
             <div className="flex flex-col justify-start m-4 space-y-4">
               <div>Projects</div>
@@ -51,7 +58,7 @@ export default function Sidebar() {
             </div>
         </motion.nav>
         <motion.button
-            className="absolute top-[50vh] left-[1vw] w-[12px] h-[50px] bg-black lg:!left-[1vw]"
+            className="absolute top-[50vh] left-[1vw] w-[12px] h-[50px] bg-black lg:!left-[1vw] z-40"
             onClick={toggleNav}
             animate={isOpen ? "open" : "closed"}
             variants={buttonVariants}

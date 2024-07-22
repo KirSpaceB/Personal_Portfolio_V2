@@ -7,13 +7,13 @@ export default function LandingPage() {
 
   return (
     <div className="flex flex-col justify-start bg-red-500 w-screen ">
-      <header className="bg-orange-500 h-16">
+      <header className="bg-orange-500 lg:h-16">
 
       </header>
       
-      <div className="flex flex-grow flex-col justify-start">
+      <div className="flex flex-grow flex-col justify-start m-8">
         <div className="flex flex-row items-center">
-          <div className="w-16 h-16 bg-blue-500 m-16">
+          <div className="lg:w-16 lg:h-16 lg:m-16 w-6 h-6 m-4 bg-blue-500">
 
           </div>
           <p className="flex-1 lg:h-auto overflow-hidden text-wrap" // Applying a fixed width to stabilize layout
@@ -23,10 +23,10 @@ export default function LandingPage() {
         </div>
 
         <div className="flex flex-row items-center">
-          <div className="w-16 h-16 bg-blue-500 m-16">
+          <div className="lg:w-16 lg:h-16 lg:m-16 w-6 h-6 m-4 bg-blue-500">
 
           </div>
-          <p className="flex-1 lg:h-auto overflow-hidden text-wrap" // Applying a fixed width to stabilize layout
+          <p className="flex-1 lg:h-auto overflow-hidden text-wrap text-sm" // Applying a fixed width to stabilize layout
           >
             {animatedString}
           </p>
