@@ -1,9 +1,15 @@
 
 import useAnimatedString from "../Hooks/useAnimatedString";
+import { ArrowUpComponent } from "./ArrowUpComponent";
+
+
 export default function LandingPage() {
   const animatedString = useAnimatedString
   (
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 1); // Example usage
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", 1
+  );
+
+  const animatedStringForInputBox = useAnimatedString("Test", 400);
 
   return (
     <div className="flex flex-col justify-start bg-red-500 w-screen ">
@@ -33,8 +39,15 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <footer className="bg-green-500 h-16">
-
+      <footer className="bg-green-500 h-16 flex justify-center items-center">
+        <div className="flex justify-center items-center ">
+          <div className="flex justify-start items-center w-64 h-12 rounded-full bg-[#2f2f2feb] text-[#141212]	 pl-4">
+            {animatedStringForInputBox}
+          </div>
+          <div className="relative flex justify-center items-center h-8 w-8 bg-gray rounded-full">
+            <ArrowUpComponent classname="relative right-10 rounded-full bg-gray"/>
+          </div>
+        </div>
       </footer>
     </div>
   );
